@@ -1,0 +1,160 @@
+<html>
+
+<body>
+
+    <div id="teste"></div>
+
+    <script>
+
+        //---------- PARTE 01 --------------------
+        //destructuring assignment no contexto de arrays
+        /*
+        let frutas = ['Abacaxi', 'Uva', 'Pera', 'Mamão']
+        console.log(frutas)
+        let a = frutas[1]
+        console.log(a)
+
+        let [ a, b, c, d ] = frutas
+        console.log(a);
+        console.log(b);
+        console.log(c);
+        console.log(a);
+        console.log(a, b);
+
+        let [a, b, , c] = frutas
+        console.log(a, b, c)
+
+        let [a, b = 'Abacate', c, d, e = 'Banana'] = frutas
+        console.log(a,b,c,d,e)
+        */
+
+        /*
+        let frutas = ['Abacaxi', 'Uva', 'Pera', 'Mamão']
+        let coisas = [frutas, ['José', 'Maria']]
+        console.log(coisas)
+        let coisas2 = [...frutas, ['José', 'Maria']]
+        console.log(coisas2)
+
+        let [,x1] = coisas
+        console.log(`x1: ${x1}`)
+        let [, [,x11]] = coisas
+        console.log(`x11: ${x11}`)
+
+        console.log('\n')
+
+        let [,x2] = coisas2
+        console.log(`x2: ${x2}`)
+        */
+
+        //---------- PARTE 02 --------------------
+        //destructuring assignment no contexto de Objetos
+        /*
+        let produto = {
+            descricao : 'Notebook',
+            preco : 2500,
+            detalhes: {
+                fabricante : 'ABC',
+                modelo: 'XYZ'
+            }
+        }
+
+        console.log(produto)
+
+        //token (arrays) => []
+        //token (objetos) => {}
+        let {descricao, preco} = produto
+        console.log(descricao, preco)
+
+        //nomear as variáveis com outros nomes
+        // let {descricao : d, preco : p} = produto
+        // console.log(d, p)
+
+        // valores default pra lidar com atributos undefined
+        let {descricao : d, preco : p = 0, desconto = 0.05} = produto
+        console.log(d, p, desconto)
+
+        let { descricao : description, detalhes : {fabricante : maker, modelo : model = 'Não Informado'}} = produto
+        console.log(description, maker, model)
+        */
+
+        //---------- PARTE 03 --------------------
+        //destructuring assignment no contexto de Objetos
+        //array 
+        /*
+        let arr = [10, 20, 30, 40]
+        function teste(a, b) {
+            console.log(a, b)
+        }
+        teste(arr[0], arr[1])
+        teste(arr)
+
+        function teste2([a, b]) {
+            console.log(a, b)
+        }
+        // teste2(arr[0], arr[1]) // -- ERRO
+        teste2(arr)
+
+        function teste3([a, b, , c]) { //pular valores
+            console.log(a, b, c)
+        }
+        // teste3(arr[0], arr[1]) // -- ERRO
+        teste3(arr)
+
+        function teste4([a, b, , c, d = 100]) { //Parâmetros Padrões
+            console.log(a, b, c, d)
+        }
+        // teste3(arr[0], arr[1]) // -- ERRO
+        teste4(arr)
+
+        //objeto
+        let obj = {
+            a: 10,
+            b: 20,
+            c: 30,
+            d: 40
+        }
+
+        function teste5(a, b) {
+            console.log(a, b)
+        }
+        teste5(obj)
+        teste5(obj.a, obj.b)
+
+        function teste6({ c, d }) {
+            console.log(c, d)
+        }
+        teste6(obj)
+        teste6(obj.a, obj.b) // undefined
+
+        function teste7({ c, d : x, t = 100}) {
+            console.log(c, x, t)
+        }
+        teste7(obj)
+        teste7(obj.a, obj.b) // undefined
+        */
+
+        //---------- PARTE 04 --------------------
+        //arrays
+        let arr= [10, 20, 30, 40]
+        let [a, f, ...x] = arr
+        console.log(a, x)
+        console.log(a, f, x)
+
+        //objetos
+        let obj = {a:10, b:20, c:30, d:40}
+        let {c} = obj
+        console.log(c)
+
+        let {c: h, ...resto} = obj
+        console.log(h, resto)
+
+        let {a: p, c: h2, ...resto2} = obj
+        console.log(p, h2, resto2)
+
+        //----------------------------------------
+
+
+    </script>
+</body>
+
+</html>

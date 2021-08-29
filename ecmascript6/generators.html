@@ -1,0 +1,142 @@
+<html>
+
+<body>
+
+    <script>
+
+        //---------- PARTE 01 --------------------
+        /*
+        function testeGenerator() {
+            console.log('Teste1')
+            console.log('Teste2')
+            console.log('Teste3')
+
+            return 'Teste4'
+        }
+
+        let meuGenerator = testeGenerator()
+        console.log(meuGenerator)
+
+        function* testeGenerator2() {
+            yield console.log('Teste1')
+            yield console.log('Teste2') //yield vai executar tudo o que está antes até a linha em questão
+            yield console.log('Teste3')
+
+            return 'Teste4'
+        }
+
+        let meuGenerator2 = testeGenerator2() //objeto iterator
+        console.log(meuGenerator2)
+
+        meuGenerator2.next()
+        console.log('--------')
+        meuGenerator2.next()
+        console.log('--------')
+        meuGenerator2.next()
+        console.log('--------')
+        console.log(meuGenerator2.next())
+
+        function* testeGenerator3() {
+            yield 'Teste1'
+            yield 'Teste2'
+            yield 'Teste3'
+
+            return 'Teste4'
+        }
+
+        let meuGenerator3 = testeGenerator3() //objeto iterator
+        console.log(meuGenerator3)
+
+        console.log(meuGenerator3.next())
+        console.log('--------')
+        console.log(meuGenerator3.next())
+        console.log('--------')
+        console.log(meuGenerator3.next())
+        console.log('--------')
+        console.log(meuGenerator3.next())
+        */
+
+        //---------- PARTE 02 --------------------
+        function* conversar() {
+            //Bloco 1
+            //escopo proprio
+            let opcao = yield 'E í, tudo bem?'
+
+            //Bloco 2
+            // o parâmetro enviado no next
+            if (opcao === 'sim') {
+                yield 'Ótimo, fico feliz!'
+
+                opcao = yield 'Como eu posso te ajudar? Quer uma piada para começar?'
+                console.log(opcao)
+                if (opcao === 'sim') {
+                    fetch('dados/piadas.json')
+                        .then(resposta => resposta.json()) // ou response => response.json()
+                        .then(piadas => {
+                            let idx = Math.floor(Math.random() * 10)
+                            let piada = piadas[idx]
+
+                            console.log(piada.piada)
+
+                            setTimeout(() => {
+                                console.log(piada.resposta)
+                                console.log('HAHAHAHAHAHHAHA muito boa, né?')
+
+                            }, 4000)
+                        })
+
+                    yield 'Digite 1 para compras, 2 para vendas ou 3 para falar com um atendente.'
+                } else {
+                    yield 'Digite 1 para compras, 2 para vendas ou 3 para falar com um atendente.'
+                }
+            } else {
+                yield 'Respire fundo, e tenha paciência.'
+
+                yield 'Digite 1 para compras, 2 para vendas ou 3 para falar com um atendente.'
+            }
+
+            /*
+            yield 'Terceira Etapa: ' + opcao
+            yield 'Quarta Etapa: ' + opcao
+            yield 'Quinta Etapa: ' + opcao
+            */
+
+            return 'Atendimento finalizado!'
+        }
+        let conversa = conversar() //objeto iterator
+
+        function acao() {
+
+            let resposta = document.getElementById('resposta').value
+            let iteracao = conversa.next(resposta) //
+            console.log(iteracao)
+
+            if(iteracao.done) {
+                document.getElementById('teste').style.display = 'none'
+            }
+
+            // iteracao = conversa.next(resposta) //
+            // console.log(iteracao)
+
+            /*
+            iteracao = conversa.next() //
+            console.log(iteracao)
+
+            iteracao = conversa.next() //
+            console.log(iteracao)
+
+            iteracao = conversa.next() //
+            console.log(iteracao)
+            */
+        }
+
+    </script>
+
+    <div id="teste">
+        <button type="button" onclick="acao()">Avançar</button>
+        Resposta: <input type="text" id="resposta" />
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<html>
+    <body>
+
+        <div id="teste"></div>
+
+        <script>
+
+            //contexto spread -> utilizado para expandir
+
+            //string 
+            let tituloArtigo = 'Como utilizar o operador rest/spread'
+            console.log(tituloArtigo)
+            console.log(...tituloArtigo)
+            console.log([...tituloArtigo])
+            console.log({...tituloArtigo})
+
+            //array
+            let listaCursos1 = ['NodeJS e MongoDB', 'Angular']
+            let listaCursos2 = ['Solid', 'Laravel']
+            let listaCompletaCursos = [
+                                        'Web Completo', 
+                                        ...listaCursos1, 
+                                        'Banco de Dados', 
+                                        ...listaCursos2
+                                    ]
+            console.log(listaCompletaCursos)
+
+            //objetos
+            let pessoa = {ǹome: 'Pedro', idade: 32}
+            let cadastroCompleto = { 
+                                        endereco: 'Rua Abc',
+                                        ...pessoa 
+                                    }
+            console.log(cadastroCompleto)
+            // ---------------------------------------------
+
+            //contexto rest -> utilizado para condensar
+
+            function soma(...param){
+                let resultado = 0
+
+                /*
+                param.forEach(v => {
+                    console.log(v)
+                    resultado += v
+                })
+                */
+               
+                param.forEach(v => resultado += v)
+
+                return resultado
+            }
+
+            let x = soma(5,7,49,56)
+            console.log('Resultado: ', x)
+
+            function multiplicador(m, ...n) {
+                // console.log(m)
+                // console.log(n)
+
+                /*
+                let resultado = 0
+                n.forEach( v => {
+                    resultado += m * v
+                })
+                */
+                let resultado = 0
+                n.forEach( v => resultado += m * v)
+
+                return resultado
+            }
+
+            let y = multiplicador(5, 7, 12, 13, 49, 2, -11)
+            console.log('Resultado: ', y)
+
+
+        </script>
+    </body>
+</html>

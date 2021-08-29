@@ -1,0 +1,67 @@
+<html>
+    <body>
+        <script>
+
+            /*
+            //Função tradicional
+            let multiplicador = function(){
+                return 5*5;
+            }
+
+            // descreve a função
+            console.log(multiplicador)
+            // executa a função
+            console.log(multiplicador())
+            */
+
+            /*
+            let multiplicador = (n) => {
+                return n * n;
+            }
+            */
+
+            /*
+            let multiplicador = n => {
+                return n * n;
+            }
+            */
+
+            // let multiplicador = n => n * n;
+            // console.log(multiplicador(7))
+
+            let multiplicador = (n1, n2) => n1 * n2;
+
+            console.log(multiplicador(5,4))
+
+            /*
+            let parOuImpar = function(n) {
+                // 8 % 2 = 0 = é par
+                // 11 % 2 = 1 = é ímpar
+                if(n % 2 === 0 ) { // === idêntico
+                    return 'par'
+                } else {
+                    return 'ímpar'
+                }
+            }
+            */
+
+            /*
+            let parOuImpar = n => {
+                if(n % 2 === 0 ) { // === idêntico
+                    return 'par'
+                } else {
+                    return 'ímpar'
+                }
+            }
+            */
+
+            let parOuImpar = n => n % 2 === 0 ? 'par' : 'ímpar'
+
+            console.log(parOuImpar(4))
+            console.log(parOuImpar(5))
+            console.log(parOuImpar(1825))
+            console.log(parOuImpar(442))
+
+        </script>
+    </body>
+</html>

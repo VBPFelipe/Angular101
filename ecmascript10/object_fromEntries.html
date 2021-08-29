@@ -1,0 +1,26 @@
+<html>
+
+<body>
+    <script>
+
+        let dados = [
+            ['nome', 'Felipe'],
+            ['profissional', [
+                ['site', 'guithub.com/vbpfelipe'],
+                ['profissao', 'Analista de Sistemas & Desenvolvedor']
+            ]],
+            ['hobbies', ['jogar', 'filmes e séries']],
+            ['pais', 'Brasil']
+        ]
+
+        console.log(dados)
+
+        // em javascript não há suporte a arrays associativos
+        //objetos: chave e valor
+
+        console.log(Object.fromEntries(dados))
+
+    </script>
+</body>
+
+</html>
