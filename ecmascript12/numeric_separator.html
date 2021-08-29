@@ -1,0 +1,57 @@
+<html>
+
+<body>
+    <script>
+
+        //inteiro
+        let num1 = 1000000000000 // trilhão
+        console.log(num1)
+
+        // numeric separator: _
+        // O objetivo é auxiliar a leitura numérica
+        //inteiro
+        num1 = 1000_000_000_000 
+        console.log(num1)
+
+        //decimal
+        let num2 = 1_575_720.25
+        console.log(num2)
+
+        //binário
+        let b = 0b1010_1010_1010
+        console.log(b)
+
+        //hexadecimal
+        let h = 0xA_B_C_D_E_F
+        console.log(h)
+
+        //octal
+        let o = 0o2_3_3_5
+        console.log(o)
+
+        //---- Restrições
+
+        //só pode ser usado uma única vez
+        // let t1 = 100______000
+        // console.log(t1)
+
+        //Não pode ser usado precedido de 0 como primeiro dígito
+        // let t2= 0_5
+        // console.log(t2)
+
+        // Não pode ser usado ao final do número
+        // let t3 = 200_
+        // console.log(t3)
+
+        // Quando usado no início do número, não define o atributo
+        // Erro: Uncaught ReferenceError: _200 is not defined
+        // let t4= _200
+        // console.log(t4)
+
+        
+
+
+    </script>
+</body>
+
+</html>

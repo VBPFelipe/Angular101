@@ -1,0 +1,48 @@
+<html>
+
+<body>
+    <script>
+
+        // false ->null, undefined, 0, ''
+        let v1 = 10
+        let v2 = null 
+        let v3 = undefined 
+        let v4 = '' 
+        let v5 = 0
+        let v6 = 'Uma string'
+        console.log('v1 = ' + v1)
+        console.log('v2 = ' + v2)
+        console.log('v3 = ' + v3)
+        console.log('v4 = ' + v4)
+        console.log('v2 = ' + v2)
+        console.log('v6 = ' + v6)
+
+
+        console.log('-------------------------')
+        // logical OR assignment (||=), se for nulo, undefined, 0 ou  ''
+        // o valor à direita deve ser atribuído
+        // v1 ??= 50
+        v1 ||= 50
+        console.log('v1 = ' + v1)
+        // v2 ??= 100
+        v2 ||= 100
+        console.log('v2 = ' + v2)
+        // v3 ??= 100
+        v3 ||= 100
+        console.log('v3 = ' + v3)
+        // v4 ??= 100
+        v4 ||= 100
+        console.log('v4 = ' + v4)
+        // v5 ??= 100
+        v5 ||= 100
+        console.log('v5 = ' + v5)
+        // v6 ??= 100
+        v6 ||= 100
+        console.log('v6 = ' + v6)
+
+
+
+    </script>
+</body>
+
+</html>
