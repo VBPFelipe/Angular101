@@ -1,0 +1,64 @@
+<html>
+
+<body>
+    <script>
+        // promise any - recebe uma coleção de promises. 
+        // E dispara uma ação quando a ŕimeira promise for resolvida.
+        // Se todas as promises forem rejeitas, um erro é disparado
+        // que pode ser capturado e tratado no escopo do catch {}
+
+        /**
+         * Teste Caso 1
+         * - Linhas 38, 42 e 48 descomantadas
+         * - Linhas 39, 43, 44 e 49 Comentadas
+         * - Caso retornará a resolução da Promise p2- Primeira Promise resolvida
+         * 
+         * Teste Caso 2
+         * - Descomentar linha 43
+         * - Comentar linha 42
+         * - Caso retornará a resolução da Promise p1- Primeira Promise resolvida
+         * 
+         * Teste Caso 3
+         * - Descomentar linha 49
+         * - Comentar linha 48
+         * - Caso retornará a resolução da Promise p1- Primeira Promise resolvida
+         * 
+         * Teste Caso 4
+         * - Descomentar linha 39
+         * - Comentar linha 38
+         * - Caso retornará a resolução da Promise p2- Primeira Promise resolvida
+         * 
+         * Teste Caso 5
+         * - Descomentar linha 44
+         * - Comentar linha 43
+         * - Caso retornará a resolução da Promise p2- Primeira Promise resolvida
+        */
+
+        const p1 = new Promise((resolve, reject) => {
+            setTimeout(() => resolve('p1 resolvido'), 3000) 
+            // setTimeout(() => reject('p1 rejeitado'), 3000) // Caso 4
+        })
+        const p2 = new Promise((resolve, reject) => {
+            setTimeout(() => resolve('p2 resolvido'), 2000) // Caso 1
+            // setTimeout(() => resolve('p2 resolvido'), 5000) // Caso 2
+            // setTimeout(() => reject('p2 rejeitado'), 5000) // caso 5
+
+        })
+        const p3 = new Promise((resolve, reject) => {
+            setTimeout(() => resolve('p3 resolvido'), 4000)
+            // setTimeout(() => reject('p3 rejeitado'), 4000) // Caso 3
+        })
+
+        // Promise.any(p1, p2, p3) // Promise
+        let promises = [p1, p2, p3]
+        Promise.any(promises) //Promise
+            .then((resolvida) => { // dispara uma ação quando a ŕimeira promise for resolvida.
+                console.log(resolvida) 
+            }).catch(erro => {
+                console.log(erro)
+            })
+
+    </script>
+</body>
+
+</html>
