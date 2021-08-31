@@ -8,6 +8,7 @@ let moto = new Moto()
 console.log(carro)
 console.log(moto)
 
+carro.acelerar()
 moto.acelerar()
 carro.acelerar()
 moto.acelerar()

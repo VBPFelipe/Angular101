@@ -9,6 +9,7 @@ var carro = new Carro_1.default('Voyage', 4);
 var moto = new Moto_1.default();
 console.log(carro);
 console.log(moto);
+carro.acelerar();
 moto.acelerar();
 carro.acelerar();
 moto.acelerar();

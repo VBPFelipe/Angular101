@@ -24,6 +24,9 @@ var Moto = /** @class */ (function (_super) {
     function Moto() {
         return _super.call(this) || this;
     }
+    Moto.prototype.acelerar = function () {
+        this.velocidade = this.velocidade + 20;
+    };
     return Moto;
 }(Veiculo_1.default));
 exports.default = Moto;
