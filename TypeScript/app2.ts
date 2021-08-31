@@ -1,33 +1,29 @@
-class Carro {
-    private modelo: string
-    private numeroDePortas: number
-    private velocidade: number = 0
+import { qualquer_coisa } from './Carro'
+import Carro from './Carro'
+import Concessionaria from './Concessionaria'
+import Pessoa from './Pessoa'
 
-    constructor(modelo: string, numeroDePortas: number) {
-        this.modelo = modelo
-        this.numeroDePortas = numeroDePortas
+let carroA = new Carro('Cerato', 4)
+let carroB = new Carro('Kombi', 3)
+let carroC = new Carro('Voyage', 4)
+
+/* --- Montar a lista de carros da concessionária --- */
+let listaDeCarros : Array<Carro> = [carroA, carroB, carroC]
+// let listaDeCarros : Carro[] = [carroA, carroB, carroC]
+
+let concessionaria = new Concessionaria('Av. Roverto Freire', listaDeCarros)
+console.log(concessionaria.mostrarListaDeCarros())
+
+let cliente = new Pessoa('Felipe', 'Voyage')
+console.log(cliente.dizerCarroPreferido())
+
+concessionaria.mostrarListaDeCarros().map((carro: Carro) => {
+    console.log(carro)
+
+    if(carro['modelo'] == cliente.dizerCarroPreferido()) {
+        //comprar carro
+        cliente.comprarCarro(carro)
     }
+})
 
-    public acelerar() : void {
-        this.velocidade = this.velocidade + 10
-    }
-
-    public parar() : void {
-        this.velocidade = 0
-    }
-
-    public velocidadeAtual() : number {
-        return this.velocidade
-    }
-
-}
-
-let carroA = new Carro('Voyage', 4)
-console.log(carroA)
-carroA.acelerar()
-console.log(carroA)
-carroA.acelerar()
-carroA.acelerar()
-console.log(carroA)
-carroA.parar()
-console.log(carroA)
+console.log('Tenho o: ',cliente.dizerCarroQueTem())
