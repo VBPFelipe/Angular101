@@ -13,7 +13,13 @@ export class PainelComponent implements OnInit {
   private instrucao: string = 'Traduza a frase:'
   private resposta !: string
 
-  constructor() { console.log(this.frases)}
+  private rodada: number = 0
+  private rodadaFrase !: Frase
+
+  constructor() { 
+    this.rodadaFrase = this.frases[this.rodada]
+    console.log(this.rodadaFrase)
+  }
 
   public getInstrucao() : string {
     return this.instrucao
@@ -21,6 +27,10 @@ export class PainelComponent implements OnInit {
 
   public getResposta() : string {
     return this.resposta
+  }
+
+  public getRodadaFrase() : Frase {
+    return this.rodadaFrase
   }
 
   ngOnInit(): void {
