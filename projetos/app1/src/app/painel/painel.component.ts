@@ -53,7 +53,7 @@ export class PainelComponent implements OnInit {
   public verificarResposta() : void {
     // console.log('Verificar resposta: ', this.resposta)
 
-    if(this._rodadaFrase.frasePtBr == this._resposta) {
+    if(this._rodadaFrase.fraseEng == this._resposta) {
       alert('A tradução está correta')
 
       // troca a frase

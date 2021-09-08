@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Coracao } from '../shared/coracao.model';
 
 @Component({
   selector: 'app-tentativas',
@@ -7,23 +8,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TentativasComponent implements OnInit {
 
-  public coracaoVazio: string = '/assets/coracao_vazio.png'
-  public coracaoCheio: string = '/assets/coracao_cheio.png'
-  private _coracaoCheio2: string = '/assets/coracao_cheio.png'
+  private _coracaoVazio: string = '/assets/coracao_vazio.png'
+  private _coracaoCheio: string = '/assets/coracao_cheio.png'
 
-  private _teste: string = 'Teste'
+  private _coracoes : Array<Coracao> = [
+    new Coracao(true),
+    new Coracao(true),
+    new Coracao(true)
+  ]
 
-  public get coracaoCheio2() : string {
-    return this._coracaoCheio2
+  constructor() { 
+    console.log(this._coracoes)
   }
-
-  public get teste() : string {
-    return this._teste
-  }
-
-  constructor() { }
 
   ngOnInit(): void {
+  }
+
+  public get coracaoCheio() : string {
+    return this._coracaoCheio
+  }
+
+  public get coracaoVazio() : string {
+    return this._coracaoVazio
+  }
+
+  public get coracoes() : Array<Coracao> {
+    return this._coracoes
   }
 
 }
