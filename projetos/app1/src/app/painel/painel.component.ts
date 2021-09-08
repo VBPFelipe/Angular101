@@ -11,7 +11,7 @@ export class PainelComponent implements OnInit {
 
   public _frases: Array<Frase> = FRASES
   private _instrucao: string = 'Traduza a frase:'
-  private _resposta !: string
+  private _resposta : string = ''
 
   private _rodada: number = 0
   private _rodadaFrase !: Frase
@@ -19,8 +19,7 @@ export class PainelComponent implements OnInit {
   private _progresso: number = 0
 
   constructor() { 
-    this._rodadaFrase = this._frases[this._rodada]
-    console.log(this._rodadaFrase)
+    this.atualizaRodada()
   }
 
   public get instrucao() : string {
@@ -46,8 +45,9 @@ export class PainelComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public atualizaResposta(_resposta: Event) : void {
-    this._resposta = (<HTMLInputElement>_resposta.target).value
+  public atualizaResposta(resposta: Event) : void {
+    this._resposta = (<HTMLInputElement>resposta.target).value
+                      .trim() // elimina espaços em branco antes ou depois da frase completa
   }
 
   public verificarResposta() : void {
@@ -62,9 +62,20 @@ export class PainelComponent implements OnInit {
       this.progresso += (100.0/this._frases.length)
       console.log(this.progresso)
 
+      //atualiza o objeto rodadaFrase
+      this.atualizaRodada()
+
     } else {
       alert('A tradução está errada')
     }
+
+  }
+
+  public atualizaRodada() : void {
+    this._rodadaFrase = this._frases[this._rodada]
+    
+    //limpar a resposta
+    this._resposta = ''
 
   }
 

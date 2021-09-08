@@ -15,7 +15,8 @@
                     <p>{{ rodadaFrase.fraseEng }}</p>
                     <div class="form-group">
                         <textarea class="form-control" id="traducao_TA" rows="3"
-                            (input)= "atualizaResposta($event)"></textarea>
+                            (input)= "atualizaResposta($event)"
+                            [value]="resposta"></textarea>
                     </div>
                 </div>
             </div>
@@ -23,7 +24,8 @@
             <div class="row">
                 <div class="col">
                     <div class="d-flex justify-content-end">
-                        <button type="button" class="btn btn-primary" (click)="verificarResposta()">Verificar</button>
+                        <button type="button" class="btn btn-primary" 
+                            (click)="verificarResposta()">Verificar</button>
                     </div>
                 </div>
             </div>
