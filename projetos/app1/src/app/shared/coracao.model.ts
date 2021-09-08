@@ -17,6 +17,10 @@ export class Coracao {
         return this._cheio
     }
 
+    public set cheio(cheio : boolean){
+        this._cheio = cheio
+    }
+
     public get urlcoracaoCheio() : string {
         return this._urlCoracaoCheio
     }

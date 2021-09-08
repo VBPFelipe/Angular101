@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { Coracao } from '../shared/coracao.model';
 
 @Component({
@@ -6,7 +6,7 @@ import { Coracao } from '../shared/coracao.model';
   templateUrl: './tentativas.component.html',
   styleUrls: ['./tentativas.component.css']
 })
-export class TentativasComponent implements OnInit {
+export class TentativasComponent implements OnInit, OnChanges {
 
   private _coracaoVazio: string = '/assets/coracao_vazio.png'
   private _coracaoCheio: string = '/assets/coracao_cheio.png'
@@ -21,12 +21,25 @@ export class TentativasComponent implements OnInit {
 
   constructor() { 
     // console.log(this._coracoes)
-    console.log(this._tentativas) // vai exibir 'undefined' devido o tempo de vida do componente
-    // O motivo: quando o construtor é executado, ainda não foi definido os parâmetros de entrada
+    // console.log(this._tentativas) 
+    /* vai exibir 'undefined' devido o tempo de vida do componente
+    O motivo: quando o construtor é executado, ainda não foi definido os parâmetros de entrada */
+  }
+
+  // Executado sempre que há um input de dados
+  ngOnChanges() : void {
+
+    //this._tentativas
+    //this._coracoes.length
+    if(this._tentativas !== this._coracoes.length) {
+      let indice = this._coracoes.length - this._tentativas
+      this._coracoes[indice-1].cheio = false
+    }
+    console.log('Tentativas recebidas do painel: ' + this._tentativas)
   }
 
   ngOnInit(): void { 
-    console.log(this._tentativas)
+    // console.log(this._tentativas) 
   }
 
   public get coracaoCheio() : string {
