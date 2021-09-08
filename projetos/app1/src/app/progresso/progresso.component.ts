@@ -7,10 +7,19 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ProgressoComponent implements OnInit {
 
-  @Input()
-  public progresso: number = 0
+  // @Input()
+  private _progresso: number = 0
 
   constructor() { }
+
+  public get progresso() : number {
+    return this._progresso
+  }
+
+  @Input()
+  public set progresso(progresso : number ) {
+    this._progresso = progresso
+  }
 
   ngOnInit(): void {
   }
