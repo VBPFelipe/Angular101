@@ -63,7 +63,6 @@ export class PainelComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
-    console.log('componente painel foi destruído')
   }
 
   public atualizaResposta(resposta: Event) : void {
@@ -72,9 +71,7 @@ export class PainelComponent implements OnInit {
   }
 
   public verificarResposta() : void {
-    // console.log('Verificar resposta: ', this.resposta)
     if(this._rodadaFrase.frasePtBr == this._resposta) {
-      // alert('A tradução está correta')
 
       // troca a frase
       this._rodada++
@@ -82,7 +79,6 @@ export class PainelComponent implements OnInit {
       this.progresso += (100.0/this._frases.length)
 
       if(this._rodada === 4) {
-        // alert('Concluiu as traducões com sucesso!')
         this._encerrarJogo.emit('vitoria')
       }
 
@@ -93,15 +89,11 @@ export class PainelComponent implements OnInit {
       // diminuir a variável tentativas
       this.tentativas--
       
-      // alert('A tradução está errada')
-      
       if(this._tentativas === -1) {
-        // alert('Você perdeu todas as tentativas!')
         this._encerrarJogo.emit('derrota')
       }
       
     }
-
   }
 
   public atualizaRodada() : void {

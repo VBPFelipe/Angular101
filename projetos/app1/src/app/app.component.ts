@@ -11,9 +11,12 @@ export class AppComponent {
   private _tipoEncerramento !: string
 
   public encerrarJogo(tipo: string) : void {
-    // console.log(tipo)
     this._jogoEmAndamento = false
     this._tipoEncerramento = tipo
+  }
+
+  public reiniciarJogo(): void {
+    this._jogoEmAndamento = true
   }
 
   public get jogoEmAndamento() : boolean {
