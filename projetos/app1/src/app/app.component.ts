@@ -8,10 +8,12 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   private _jogoEmAndamento : boolean = true
+  private _tipoEncerramento !: string
 
-  public encerrarJogo(tipo : string) : void {
-    console.log(tipo)
+  public encerrarJogo(tipo: string) : void {
+    // console.log(tipo)
     this._jogoEmAndamento = false
+    this._tipoEncerramento = tipo
   }
 
   public get jogoEmAndamento() : boolean {
@@ -20,6 +22,14 @@ export class AppComponent {
 
   public set jogoEmAndamento(jogoEmAndamento: boolean) {
     this._jogoEmAndamento = jogoEmAndamento
+  }
+
+  public get tipoEncerramento() : string {
+    return this._tipoEncerramento
+  }
+
+  public set tipoEncerramento(tipoEncerramento : string) {
+    this._tipoEncerramento = tipoEncerramento
   }
 
 }
