@@ -9,50 +9,57 @@ import { FRASES } from './frases-mock';
 })
 export class PainelComponent implements OnInit {
 
-  public frases: Array<Frase> = FRASES
-  private instrucao: string = 'Traduza a frase:'
-  private resposta !: string
+  public _frases: Array<Frase> = FRASES
+  private _instrucao: string = 'Traduza a frase:'
+  private _resposta !: string
 
-  private rodada: number = 0
-  private rodadaFrase !: Frase
+  private _rodada: number = 0
+  private _rodadaFrase !: Frase
 
-  public progresso: number = 0
+  private _progresso: number = 0
 
   constructor() { 
-    this.rodadaFrase = this.frases[this.rodada]
-    console.log(this.rodadaFrase)
+    this._rodadaFrase = this._frases[this._rodada]
+    console.log(this._rodadaFrase)
   }
 
-  public getInstrucao() : string {
-    return this.instrucao
+  public get instrucao() : string {
+    return this._instrucao
   }
 
-  public getResposta() : string {
-    return this.resposta
+  public get resposta() : string {
+    return this._resposta
   }
 
-  public getRodadaFrase() : Frase {
-    return this.rodadaFrase
+  public get rodadaFrase() : Frase {
+    return this._rodadaFrase
+  }
+
+  public get progresso() : number {
+    return this._progresso
+  }
+
+  public set progresso(progresso : number) {
+    this._progresso = progresso
   }
 
   ngOnInit(): void {
   }
 
-  public atualizaResposta(resposta: Event) : void {
-    this.resposta = (<HTMLInputElement>resposta.target).value
-    // console.log(this.getResposta())
+  public atualizaResposta(_resposta: Event) : void {
+    this._resposta = (<HTMLInputElement>_resposta.target).value
   }
 
   public verificarResposta() : void {
     // console.log('Verificar resposta: ', this.resposta)
 
-    if(this.rodadaFrase.frasePtBr == this.resposta) {
+    if(this._rodadaFrase.frasePtBr == this._resposta) {
       alert('A tradução está correta')
 
       // troca a frase
-      this.rodada++
-      this.rodadaFrase = this.frases[this.rodada]
-      this.progresso += (100.0/this.frases.length)
+      this._rodada++
+      this._rodadaFrase = this._frases[this._rodada]
+      this.progresso += (100.0/this._frases.length)
       console.log(this.progresso)
 
     } else {
