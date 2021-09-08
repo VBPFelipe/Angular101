@@ -18,7 +18,7 @@ export class PainelComponent implements OnInit {
 
   private _progresso: number = 0
 
-  private _tentativa: number = 3
+  private _tentativas: number = 3
 
   constructor() { 
     this.atualizaRodada()
@@ -44,12 +44,12 @@ export class PainelComponent implements OnInit {
     this._progresso = progresso
   }
 
-  public get tentativa() : number {
-    return this._tentativa
+  public get tentativas() : number {
+    return this._tentativas
   }
 
-  public set tentativa(tentativa : number ) {
-    this._tentativa = tentativa
+  public set tentativas(tentativas : number ) {
+    this._tentativas = tentativas
   }
 
   ngOnInit(): void {
@@ -62,7 +62,7 @@ export class PainelComponent implements OnInit {
 
   public verificarResposta() : void {
     // console.log('Verificar resposta: ', this.resposta)
-    console.log(this._tentativa)
+    console.log(this._tentativas)
     if(this._rodadaFrase.frasePtBr == this._resposta) {
       alert('A tradução está correta')
 
@@ -79,14 +79,14 @@ export class PainelComponent implements OnInit {
       alert('A tradução está errada')
 
       // diminuir a variável tentativas
-      this.tentativa--
+      this.tentativas--
 
-      if(this._tentativa === -1) {
+      if(this._tentativas === -1) {
         alert('Você perdeu todas as tentativas!')
       }
       
     }
-    console.log(this._tentativa)
+    console.log(this._tentativas)
 
   }
 
