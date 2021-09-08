@@ -62,6 +62,10 @@ export class PainelComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  ngOnDestroy(): void {
+    console.log('componente painel foi destruído')
+  }
+
   public atualizaResposta(resposta: Event) : void {
     this._resposta = (<HTMLInputElement>resposta.target).value
                       .trim() // elimina espaços em branco antes ou depois da frase completa

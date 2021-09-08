@@ -7,8 +7,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
+  private _jogoEmAndamento : boolean = true
+
   public encerrarJogo(tipo : string) : void {
     console.log(tipo)
+    this._jogoEmAndamento = false
+  }
+
+  public get jogoEmAndamento() : boolean {
+    return this._jogoEmAndamento
+  }
+
+  public set jogoEmAndamento(jogoEmAndamento: boolean) {
+    this._jogoEmAndamento = jogoEmAndamento
   }
 
 }
