@@ -18,6 +18,8 @@ export class PainelComponent implements OnInit {
 
   private _progresso: number = 0
 
+  private _tentativa: number = 3
+
   constructor() { 
     this.atualizaRodada()
   }
@@ -42,6 +44,14 @@ export class PainelComponent implements OnInit {
     this._progresso = progresso
   }
 
+  public get tentativa() : number {
+    return this._tentativa
+  }
+
+  public set tentativa(tentativa : number ) {
+    this._tentativa = tentativa
+  }
+
   ngOnInit(): void {
   }
 
@@ -52,8 +62,8 @@ export class PainelComponent implements OnInit {
 
   public verificarResposta() : void {
     // console.log('Verificar resposta: ', this.resposta)
-
-    if(this._rodadaFrase.fraseEng == this._resposta) {
+    console.log(this._tentativa)
+    if(this._rodadaFrase.frasePtBr == this._resposta) {
       alert('A tradução está correta')
 
       // troca a frase
@@ -67,7 +77,16 @@ export class PainelComponent implements OnInit {
 
     } else {
       alert('A tradução está errada')
+
+      // diminuir a variável tentativas
+      this.tentativa--
+
+      if(this._tentativa === -1) {
+        alert('Você perdeu todas as tentativas!')
+      }
+      
     }
+    console.log(this._tentativa)
 
   }
 
