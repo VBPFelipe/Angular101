@@ -3,7 +3,7 @@ import { Oferta } from "./shared/oferta.model"
 
 export class OfertasService {
 
-    private ofertas: Array<Oferta> = [
+    private _ofertas: Array<Oferta> = [
         new Oferta(
             1, "restaurante", "Super Burger", 
             "Rodízio de Mini-hambúrger com opção de entrada.", 
@@ -41,7 +41,16 @@ export class OfertasService {
         )
     ]
 
-    public getOfertas(): Array<Oferta> {
-        return this.ofertas
+    public get ofertas(): Array<Oferta> {
+        return this._ofertas
+    }
+
+    public getOfertas(): Promise<Array<Oferta>> {
+        return new Promise((resolve, reject) => {
+            // algum tipo de processamento que ao finalizar chama 
+            // a função resolve, ou a reject
+            console.log("passou pela promise")
+            resolve( this.ofertas )
+        })
     }
 }
