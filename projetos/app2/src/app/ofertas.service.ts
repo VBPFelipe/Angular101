@@ -49,12 +49,23 @@ export class OfertasService {
         return new Promise((resolve, reject) => {
             // algum tipo de processamento que ao finalizar chama 
             // a função resolve, ou a reject
-            console.log("passou pela promise")
-            let deu_certo = false
-            if(deu_certo)
-                resolve( this.ofertas )
-            else
+            // console.log("passou pela promise")
+            let deu_certo = true
+            if(deu_certo) {
+                setTimeout( () => { resolve( this._ofertas ) }, 3000)
+            }
+            else {
                 reject({codigo_erro: 404, mensagem_erro: 'Servidor não encontrado'})
+            }
+        // }).then((ofertas: Array<Oferta> ) => { // Erro: Types of parameters 'ofertas' and 'value' are incompatible. Type 'unknown' is not assignable to type 'Oferta[]'.
+        }).then((ofertas: Array<Oferta> | any) => {
+            // fazer alguma tratativa
+            console.log('primeiro then')
+            return ofertas
+        }).then(( ofertas: Array<Oferta> | any) => {
+            // Fazer outra tratativa
+            console.log('segundo then')
+            return ofertas
         })
     }
 }
