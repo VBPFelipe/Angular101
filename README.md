@@ -5,8 +5,9 @@ Studies Repository for Angular
 
 Using Linux Mint 20.3 "Una", or Ubuntu 20.04 LTS, or elementary OS 6 Odin:
 
-curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-sudo apt-get install -y nodejs
+```curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -```
+
+```sudo apt-get install -y nodejs```
 
 ## To install Angular
 
